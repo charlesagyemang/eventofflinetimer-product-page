@@ -1,26 +1,93 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Deep navy base — warm undertone, not dead-cold */
+  --color-brand-900: #07090f;
+  --color-brand-800: #0c1221;
+  --color-brand-700: #162036;
+  --color-brand-500: #0ea5e9;
+  --color-brand-400: #38bdf8;
+  --color-brand-300: #7dd3fc;
+
+  --color-cta-green: #22c55e;
+  --color-cta-green-hover: #16a34a;
+
+  --color-text-primary: #f1f5f9;
+  --color-text-secondary: rgba(226, 232, 240, 0.6);
+  --color-text-muted: rgba(226, 232, 240, 0.35);
+
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #07090f;
+  color: #f1f5f9;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Tabular nums for timer digits */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Hide scrollbar for use cases strip */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Floating particles - pure CSS */
+@keyframes float-particle {
+  0% {
+    transform: translateY(100vh) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: var(--particle-opacity, 0.1);
+  }
+  90% {
+    opacity: var(--particle-opacity, 0.1);
+  }
+  100% {
+    transform: translateY(-100px) translateX(var(--particle-drift, 20px));
+    opacity: 0;
+  }
+}
+
+.particle {
+  position: fixed;
+  width: var(--particle-size, 3px);
+  height: var(--particle-size, 3px);
+  border-radius: 50%;
+  background: var(--particle-color, rgba(255, 255, 255, 0.8));
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform;
+  contain: strict;
+  animation: float-particle var(--particle-duration, 30s) linear infinite;
+  animation-delay: var(--particle-delay, 0s);
+  left: var(--particle-x, 50%);
+}
+
+/* Snap carousel for mobile display showcase */
+.snap-carousel {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.snap-carousel > * {
+  scroll-snap-align: center;
 }
