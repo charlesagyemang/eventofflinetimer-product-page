@@ -12,7 +12,7 @@ export default function Footer() {
         }}
       />
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-12 lg:px-16 py-16">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16 py-12 sm:py-16">
         <div className="flex flex-col items-center text-center gap-5">
           {/* Logo */}
           <div className="flex items-center gap-2.5">

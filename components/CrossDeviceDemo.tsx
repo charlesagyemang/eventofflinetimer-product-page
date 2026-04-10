@@ -140,8 +140,8 @@ export default function CrossDeviceDemo() {
   // SSG fallback
   if (!hydrated) {
     return (
-      <section ref={sectionRef} className="relative py-20 md:py-28">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-12 lg:px-16">
+      <section ref={sectionRef} className="relative py-12 sm:py-20 md:py-28">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16">
           <SectionHeading
             title="Control from here. See it everywhere."
             subtitle="This is a real timer. Start it from the admin panel on the left. Watch it update on the display on the right — the same way it works on every screen at your event."
@@ -171,8 +171,8 @@ export default function CrossDeviceDemo() {
   }
 
   return (
-    <section ref={sectionRef} className="relative py-20 md:py-28">
-      <div className="max-w-[1200px] mx-auto px-6 md:px-12 lg:px-16">
+    <section ref={sectionRef} className="relative py-12 sm:py-20 md:py-28">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16">
         <SectionHeading
           title="Control from here. See it everywhere."
           subtitle="This is a real timer. Start it from the admin panel on the left. Watch it update on the display on the right — the same way it works on every screen at your event."
@@ -182,7 +182,7 @@ export default function CrossDeviceDemo() {
           {/* Admin mini-panel */}
           <div>
             <DeviceMockup type="laptop">
-              <div className="p-4 md:p-6 space-y-4 min-h-[320px]">
+              <div className="p-3 sm:p-4 md:p-6 space-y-3 sm:space-y-4">
                 {/* Title input */}
                 <div>
                   <label className="text-[11px] font-medium uppercase tracking-widest text-text-muted block mb-1.5">
@@ -286,7 +286,7 @@ export default function CrossDeviceDemo() {
             {/* Projector display */}
             <DeviceMockup type="projector">
               <div
-                className="relative flex flex-col items-center justify-center py-10 md:py-14 px-6 min-h-[280px] transition-colors duration-500"
+                className="relative flex flex-col items-center justify-center py-8 sm:py-10 md:py-14 px-4 sm:px-6 min-h-[200px] sm:min-h-[280px] transition-colors duration-500"
                 style={{
                   background:
                     status === "expired"
@@ -393,24 +393,26 @@ export default function CrossDeviceDemo() {
         </div>
 
         {/* LIVE badge */}
-        <div className="flex justify-center mt-10">
-          <div className="flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/[0.04] border border-white/[0.08]">
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
-            </span>
-            <span className="text-sm text-green-400 font-medium">LIVE</span>
-            <span className="text-sm text-text-secondary">
-              &mdash; Both screens share the same state
+        <div className="flex justify-center mt-8 sm:mt-10 px-2">
+          <div className="flex flex-col sm:flex-row items-center gap-1.5 sm:gap-2.5 px-4 py-2 rounded-2xl sm:rounded-full bg-white/[0.04] border border-white/[0.08] text-center">
+            <div className="flex items-center gap-2">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
+              </span>
+              <span className="text-sm text-green-400 font-medium">LIVE</span>
+            </div>
+            <span className="text-xs sm:text-sm text-text-secondary">
+              Both screens share the same state
             </span>
           </div>
         </div>
 
         {/* Kicker lines */}
-        <p className="text-center text-text-secondary italic mt-8 text-base">
+        <p className="text-center text-text-secondary italic mt-6 sm:mt-8 text-sm sm:text-base px-2">
           Imagine this on a projector at the back of a 500-person room.
         </p>
-        <p className="text-center text-text-muted text-sm mt-2">
+        <p className="text-center text-text-muted text-xs sm:text-sm mt-2 px-2">
           Now imagine controlling it from the sound booth, your phone, or your
           seat.
         </p>

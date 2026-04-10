@@ -28,7 +28,7 @@ export default function DeviceConstellation() {
       </motion.div>
 
       {/* Connection lines + devices */}
-      <div className="mt-6 flex items-start justify-center gap-4 md:gap-8 relative">
+      <div className="mt-4 sm:mt-6 flex items-start justify-center gap-2 sm:gap-4 md:gap-8 relative">
         {/* SVG connection lines */}
         <svg
           className="absolute -top-6 left-0 right-0 h-8 pointer-events-none"
@@ -64,7 +64,7 @@ export default function DeviceConstellation() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 1.4, ease }}
-          className="w-20 md:w-24"
+          className="w-16 sm:w-20 md:w-24"
         >
           <motion.div
             animate={{ y: [0, -3, 0] }}
@@ -90,7 +90,7 @@ export default function DeviceConstellation() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 1.6, ease }}
-          className="w-28 md:w-36"
+          className="w-20 sm:w-28 md:w-36"
         >
           <motion.div
             animate={{ y: [0, -3, 0] }}
@@ -121,7 +121,7 @@ export default function DeviceConstellation() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 1.8, ease }}
-          className="w-32 md:w-40"
+          className="w-24 sm:w-32 md:w-40"
         >
           <DeviceMockup type="projector">
             <Image

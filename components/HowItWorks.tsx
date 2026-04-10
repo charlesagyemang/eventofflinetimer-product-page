@@ -57,8 +57,8 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="relative py-20 md:py-28 bg-brand-800/50">
-      <div className="max-w-[1200px] mx-auto px-6 md:px-12 lg:px-16">
+    <section id="how-it-works" className="relative py-12 sm:py-20 md:py-28 bg-brand-800/50">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16">
         <SectionHeading title="Up and running in 30 seconds." />
 
         {/* Desktop: horizontal layout */}

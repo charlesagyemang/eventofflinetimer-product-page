@@ -33,12 +33,12 @@ export default function PlatformDownload({
       <div id="hero-cta" className="flex flex-col sm:flex-row gap-3">
         {recommended?.url ? (
           <Button href={recommended.url} variant="cta" size="lg">
-            <Play size={16} fill="currentColor" />
-            {label}
+            <Play size={16} fill="currentColor" className="shrink-0" />
+            <span className="truncate">{label}</span>
           </Button>
         ) : (
           <Button href="#download" variant="cta" size="lg">
-            <Play size={16} fill="currentColor" />
+            <Play size={16} fill="currentColor" className="shrink-0" />
             Download
           </Button>
         )}
@@ -48,7 +48,7 @@ export default function PlatformDownload({
           </Button>
         )}
       </div>
-      <p className="mt-4 text-sm text-text-muted">
+      <p className="mt-3 sm:mt-4 text-xs sm:text-sm text-text-muted">
         Also available for Windows and Linux · v{appVersion} · Free and open
         source
       </p>

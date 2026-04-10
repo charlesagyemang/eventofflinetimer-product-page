@@ -65,8 +65,8 @@ export default function DownloadSection() {
     : null;
 
   return (
-    <section id="download" className="relative py-20 md:py-28 bg-brand-800/50">
-      <div className="max-w-[1200px] mx-auto px-6 md:px-12 lg:px-16">
+    <section id="download" className="relative py-12 sm:py-20 md:py-28 bg-brand-800/50">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16">
         <SectionHeading
           title="Ready to run your next event like a professional?"
           subtitle="Download free. No account. No trial. No strings."

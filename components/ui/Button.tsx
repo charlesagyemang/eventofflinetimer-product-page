@@ -21,8 +21,8 @@ const variants = {
 
 const sizes = {
   sm: "px-4 py-2 text-sm",
-  md: "px-6 py-3 text-[15px]",
-  lg: "px-8 py-4 text-base",
+  md: "px-5 py-3 text-[15px]",
+  lg: "px-5 py-3.5 text-sm sm:px-8 sm:py-4 sm:text-base",
 };
 
 export default function Button({
@@ -33,7 +33,7 @@ export default function Button({
   className = "",
   onClick,
 }: ButtonProps) {
-  const classes = `inline-flex items-center justify-center gap-2 rounded-full transition-all duration-200 ${variants[variant]} ${sizes[size]} ${className}`;
+  const classes = `inline-flex items-center justify-center gap-2 rounded-full transition-all duration-200 w-full sm:w-auto text-center ${variants[variant]} ${sizes[size]} ${className}`;
 
   if (href) {
     return (

@@ -52,8 +52,8 @@ const phases = [
 
 export default function DisplayShowcase() {
   return (
-    <section className="relative py-20 md:py-28 overflow-hidden">
-      <div className="max-w-[1200px] mx-auto px-6 md:px-12 lg:px-16">
+    <section className="relative py-12 sm:py-20 md:py-28 overflow-hidden">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16">
         <SectionHeading
           title="See what your audience sees."
           subtitle="The display adapts as time runs out — calm green when there's plenty of time, urgent red when there isn't."

@@ -44,7 +44,7 @@ export default function Navbar() {
             : "bg-transparent"
         }`}
       >
-        <div className="max-w-[1200px] mx-auto px-6 md:px-12 lg:px-16 h-16 flex items-center justify-between">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16 h-14 sm:h-16 flex items-center justify-between">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2.5">
             <Image

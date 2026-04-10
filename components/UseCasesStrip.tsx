@@ -22,7 +22,7 @@ const useCases = [
 export default function UseCasesStrip() {
   return (
     <section className="relative py-12 md:py-16">
-      <div className="max-w-[1200px] mx-auto px-6 md:px-12 lg:px-16">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16">
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}

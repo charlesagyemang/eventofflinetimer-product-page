@@ -77,8 +77,8 @@ function StatusIcon({ status }: { status: ComparisonItem["status"] }) {
 
 export default function ComparisonSection() {
   return (
-    <section className="relative py-20 md:py-28">
-      <div className="max-w-[1200px] mx-auto px-6 md:px-12 lg:px-16">
+    <section className="relative py-12 sm:py-20 md:py-28">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16">
         <SectionHeading
           title="Why not just use a phone timer?"
           subtitle="Because a phone timer can't do any of this."

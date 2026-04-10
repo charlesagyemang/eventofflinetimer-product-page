@@ -9,7 +9,7 @@ const ease = [0.16, 1, 0.3, 1] as const;
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center pt-16 overflow-hidden">
+    <section className="relative min-h-[100dvh] flex items-center pt-16 overflow-hidden">
       {/* Background glows */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -21,7 +21,7 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative z-10 max-w-[1200px] mx-auto px-6 md:px-12 lg:px-16 py-20 md:py-24 w-full">
+      <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16 py-12 sm:py-20 md:py-24 w-full">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left column - Copy */}
           <div>
@@ -42,7 +42,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.25, ease }}
-              className="mt-8 text-[clamp(40px,6vw,80px)] font-extrabold tracking-[-0.035em] leading-[1.0] text-text-primary"
+              className="mt-6 sm:mt-8 text-[clamp(32px,7vw,80px)] font-extrabold tracking-[-0.035em] leading-[1.05] text-text-primary"
             >
               The event timer that never drops out.
             </motion.h1>
@@ -52,7 +52,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.35, delay: 0.5, ease }}
-              className="mt-6 text-[clamp(16px,2vw,20px)] leading-relaxed text-text-secondary max-w-lg"
+              className="mt-4 sm:mt-6 text-[clamp(14px,2.5vw,20px)] leading-relaxed text-text-secondary max-w-lg"
             >
               Professional countdown timer that runs entirely on your laptop and
               shares a live display to every screen in the room. No internet. No
@@ -64,7 +64,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: 0.7, ease }}
-              className="mt-8"
+              className="mt-6 sm:mt-8"
             >
               <PlatformDownload />
             </motion.div>

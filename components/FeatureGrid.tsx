@@ -53,8 +53,8 @@ export default function FeatureGrid() {
   const [expandedCard, setExpandedCard] = useState<number | null>(null);
 
   return (
-    <section id="features" className="relative py-20 md:py-28">
-      <div className="max-w-[1200px] mx-auto px-6 md:px-12 lg:px-16">
+    <section id="features" className="relative py-12 sm:py-20 md:py-28">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16">
         <SectionHeading
           title="Built for the moments that matter most."
           subtitle="When a speaker has 5 minutes left, that information needs to be there. Always. On every screen. Without question."
