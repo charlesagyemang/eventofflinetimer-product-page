@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import { Download, Monitor, Terminal, Play } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Download, Monitor, Terminal, Play, ShieldAlert, ChevronDown, Copy, Check } from "lucide-react";
 import { detectPlatform } from "@/lib/detectPlatform";
 import {
   downloads,
@@ -47,10 +47,18 @@ function PlatformIcon({
 
 export default function DownloadSection() {
   const [platform, setPlatform] = useState<Platform | null>(null);
+  const [macTipOpen, setMacTipOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     setPlatform(detectPlatform());
   }, []);
+
+  const handleCopy = (text: string) => {
+    navigator.clipboard.writeText(text);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   const recommended = platform
     ? downloads.find((d) => d.platform === platform && d.url)
@@ -152,6 +160,66 @@ export default function DownloadSection() {
             </GlowCard>
           ))}
         </div>
+
+        {/* macOS Gatekeeper note */}
+        {(platform === "mac-arm64" || platform === "mac-x64") && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.4, ease }}
+            className="max-w-2xl mx-auto mt-10"
+          >
+            <button
+              onClick={() => setMacTipOpen(!macTipOpen)}
+              className="w-full flex items-center gap-3 px-5 py-3.5 rounded-xl bg-amber-500/[0.06] border border-amber-400/15 text-left hover:bg-amber-500/[0.08] transition-colors"
+            >
+              <ShieldAlert size={18} className="text-amber-400 shrink-0" />
+              <span className="text-sm text-amber-200/80 flex-1">
+                macOS says the app is damaged?
+              </span>
+              <ChevronDown
+                size={16}
+                className={`text-amber-400/60 transition-transform duration-200 ${macTipOpen ? "rotate-180" : ""}`}
+              />
+            </button>
+            <AnimatePresence>
+              {macTipOpen && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="overflow-hidden"
+                >
+                  <div className="px-5 py-4 mt-1 rounded-xl bg-white/[0.03] border border-white/[0.06] space-y-3">
+                    <p className="text-sm text-text-secondary leading-relaxed">
+                      macOS quarantines apps downloaded from the internet. Since this app
+                      isn&apos;t signed with an Apple Developer certificate, you&apos;ll need to
+                      remove the quarantine flag. Open <strong className="text-text-primary">Terminal</strong> and run:
+                    </p>
+                    <div className="relative group">
+                      <pre className="bg-black/40 rounded-lg px-4 py-3 text-sm font-mono text-amber-200/90 overflow-x-auto">
+                        xattr -cr /Applications/Offline\ Event\ Timer.app
+                      </pre>
+                      <button
+                        onClick={() => handleCopy("xattr -cr /Applications/Offline\\ Event\\ Timer.app")}
+                        className="absolute top-2 right-2 p-1.5 rounded-md bg-white/[0.06] hover:bg-white/[0.12] transition-colors"
+                        aria-label="Copy command"
+                      >
+                        {copied ? <Check size={14} className="text-green-400" /> : <Copy size={14} className="text-white/40" />}
+                      </button>
+                    </div>
+                    <p className="text-xs text-text-muted leading-relaxed">
+                      Then open the app normally. You only need to do this once.
+                      If you installed it somewhere else, replace the path with wherever the app is located.
+                    </p>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
+        )}
 
         <p className="text-center text-sm text-text-muted mt-8">
           v{appVersion} · Free and open source · No account required
