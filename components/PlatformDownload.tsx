@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Play } from "lucide-react";
 import { detectPlatform } from "@/lib/detectPlatform";
-import { downloads, appVersion, githubUrl } from "@/lib/downloads";
+import { downloads, appVersion } from "@/lib/downloads";
 import type { Platform } from "@/lib/downloads";
 import Button from "@/components/ui/Button";
 
@@ -40,11 +40,6 @@ export default function PlatformDownload({
           <Button href="#download" variant="cta" size="lg">
             <Play size={16} fill="currentColor" className="shrink-0" />
             Download
-          </Button>
-        )}
-        {githubUrl && (
-          <Button href={githubUrl} variant="ghost" size="lg">
-            View on GitHub
           </Button>
         )}
       </div>

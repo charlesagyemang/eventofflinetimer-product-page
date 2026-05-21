@@ -9,13 +9,15 @@ export interface DownloadOption {
   icon: string;
 }
 
+const R2_BASE = "https://pub-fb653f2363e94b2ba12c307dd9f89ebb.r2.dev/latest";
+
 export const downloads: DownloadOption[] = [
   {
     platform: "mac-arm64",
     label: "macOS",
     arch: "Apple Silicon",
     format: ".dmg",
-    url: process.env.NEXT_PUBLIC_DOWNLOAD_MAC_DMG,
+    url: `${R2_BASE}/Event%20Timer-1.1.0-arm64.dmg`,
     icon: "Apple",
   },
   {
@@ -23,7 +25,7 @@ export const downloads: DownloadOption[] = [
     label: "macOS",
     arch: "Intel",
     format: ".dmg",
-    url: process.env.NEXT_PUBLIC_DOWNLOAD_MAC_INTEL_DMG,
+    url: `${R2_BASE}/Event%20Timer-1.1.0.dmg`,
     icon: "Apple",
   },
   {
@@ -31,7 +33,7 @@ export const downloads: DownloadOption[] = [
     label: "Windows",
     arch: "64-bit",
     format: ".exe",
-    url: process.env.NEXT_PUBLIC_DOWNLOAD_WINDOWS_EXE,
+    url: `${R2_BASE}/Event%20Timer%20Setup%201.1.0.exe`,
     icon: "Monitor",
   },
   {
@@ -39,12 +41,11 @@ export const downloads: DownloadOption[] = [
     label: "Linux",
     arch: "x64",
     format: ".AppImage",
-    url: process.env.NEXT_PUBLIC_DOWNLOAD_LINUX_APPIMAGE,
+    url: `${R2_BASE}/Event%20Timer-1.1.0.AppImage`,
     icon: "Terminal",
   },
 ];
 
 export const availableDownloads = downloads.filter((d) => d.url);
 
-export const appVersion = process.env.NEXT_PUBLIC_APP_VERSION || "1.0.0";
-export const githubUrl = process.env.NEXT_PUBLIC_GITHUB_URL || "";
+export const appVersion = "1.1.0";

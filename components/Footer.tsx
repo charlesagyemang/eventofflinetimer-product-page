@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { githubUrl } from "@/lib/downloads";
 
 export default function Footer() {
   return (
@@ -34,32 +33,6 @@ export default function Footer() {
             &ldquo;Offline-first is not a feature. It is the founding
             principle.&rdquo;
           </p>
-
-          {/* Links */}
-          <div className="flex gap-6 text-sm text-text-muted">
-            {githubUrl && (
-              <>
-                <a
-                  href={githubUrl}
-                  className="hover:text-white hover:underline transition-colors"
-                >
-                  GitHub
-                </a>
-                <a
-                  href={`${githubUrl}/releases`}
-                  className="hover:text-white hover:underline transition-colors"
-                >
-                  Releases
-                </a>
-                <a
-                  href={`${githubUrl}/issues`}
-                  className="hover:text-white hover:underline transition-colors"
-                >
-                  Report an Issue
-                </a>
-              </>
-            )}
-          </div>
 
           <p className="text-xs text-text-muted/60 mt-2">
             &copy; {new Date().getFullYear()} Possitech. Free and open source.

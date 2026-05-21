@@ -8,7 +8,6 @@ import {
   downloads,
   availableDownloads,
   appVersion,
-  githubUrl,
 } from "@/lib/downloads";
 import type { Platform } from "@/lib/downloads";
 import SectionHeading from "@/components/ui/SectionHeading";
