@@ -17,7 +17,7 @@ export const downloads: DownloadOption[] = [
     label: "macOS",
     arch: "Apple Silicon",
     format: ".dmg",
-    url: `${R2_BASE}/Event%20Timer-1.1.0-arm64.dmg`,
+    url: `${R2_BASE}/Event%20Timer-1.2.0-arm64.dmg`,
     icon: "Apple",
   },
   {
@@ -25,7 +25,7 @@ export const downloads: DownloadOption[] = [
     label: "macOS",
     arch: "Intel",
     format: ".dmg",
-    url: `${R2_BASE}/Event%20Timer-1.1.0.dmg`,
+    url: `${R2_BASE}/Event%20Timer-1.2.0.dmg`,
     icon: "Apple",
   },
   {
@@ -33,7 +33,7 @@ export const downloads: DownloadOption[] = [
     label: "Windows",
     arch: "64-bit",
     format: ".exe",
-    url: `${R2_BASE}/Event%20Timer%20Setup%201.1.0.exe`,
+    url: `${R2_BASE}/Event%20Timer%20Setup%201.2.0.exe`,
     icon: "Monitor",
   },
   {
@@ -41,11 +41,11 @@ export const downloads: DownloadOption[] = [
     label: "Linux",
     arch: "x64",
     format: ".AppImage",
-    url: `${R2_BASE}/Event%20Timer-1.1.0.AppImage`,
+    url: `${R2_BASE}/Event%20Timer-1.2.0.AppImage`,
     icon: "Terminal",
   },
 ];
 
 export const availableDownloads = downloads.filter((d) => d.url);
 
-export const appVersion = "1.1.0";
+export const appVersion = "1.2.0";
