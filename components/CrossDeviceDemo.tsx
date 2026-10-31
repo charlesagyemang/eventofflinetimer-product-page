@@ -413,8 +413,7 @@ export default function CrossDeviceDemo() {
           Imagine this on a projector at the back of a 500-person room.
         </p>
         <p className="text-center text-text-muted text-xs sm:text-sm mt-2 px-2">
-          Now imagine controlling it from the sound booth, your phone, or your
-          seat.
+          Now control it from the sound booth, your phone, or right inside OBS.
         </p>
 
         {/* Prompt for non-interacted users */}

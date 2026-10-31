@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Zap } from "lucide-react";
+import { Smartphone, Zap } from "lucide-react";
 import PlatformDownload from "@/components/PlatformDownload";
 import DeviceConstellation from "@/components/DeviceConstellation";
 
@@ -30,11 +30,19 @@ export default function Hero() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.25, delay: 0.1, ease }}
+              className="flex flex-wrap items-center gap-2"
             >
               <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.06] border border-white/[0.08] text-sm text-brand-300 font-medium">
                 <Zap size={14} className="text-amber-400" />
                 No internet required
               </span>
+              <a
+                href="#features"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-brand-500/10 border border-brand-400/20 text-sm text-brand-300 font-medium hover:bg-brand-500/15 transition-colors"
+              >
+                <Smartphone size={14} />
+                New in v1.3: phone remote
+              </a>
             </motion.div>
 
             {/* Headline */}

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://eventofflinetimer.com"),
   title: "Offline Event Timer — Professional Countdown for Live Events",
   description:
-    "Free desktop app that runs a countdown timer offline and shares it to any screen on your network. No internet. No accounts. Mac, Windows, Linux.",
+    "Free desktop app that runs a countdown timer offline, shares it to any screen on your network, and lets you control it from your phone. No internet. No accounts. Mac, Windows, Linux.",
   keywords: [
     "event timer",
     "countdown timer",
@@ -31,6 +31,8 @@ export const metadata: Metadata = {
     "church timer",
     "hackathon timer",
     "speaker timer",
+    "remote control timer",
+    "OBS timer",
   ],
   openGraph: {
     title: "Offline Event Timer — The event timer that never drops out",

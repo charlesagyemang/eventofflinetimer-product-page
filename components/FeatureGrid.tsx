@@ -6,7 +6,7 @@ import {
   Radio,
   Monitor,
   Palette,
-  SlidersHorizontal,
+  Smartphone,
   Globe,
 } from "lucide-react";
 import Image from "next/image";
@@ -24,12 +24,12 @@ const features = [
   {
     icon: Radio,
     title: "Under 10ms sync",
-    body: "Every display updates in under 10 milliseconds. Direct WebSocket \u2014 no cloud relay, no polling, no lag.",
+    body: "Every display updates in under 10 milliseconds. Direct WebSocket \u2014 no cloud relay, no polling. No drift either: a 1-hour timer ends on the second.",
   },
   {
     icon: Monitor,
     title: "Any screen, any device",
-    body: "Projectors, TVs, phones, tablets, second laptops. If it has a browser, it's a display. No app to install.",
+    body: "Projectors, TVs, phones, tablets, second laptops. If it has a browser, it's a display. Or send a fullscreen timer to a connected projector in one click.",
   },
   {
     icon: Palette,
@@ -37,9 +37,9 @@ const features = [
     body: "Huge glowing digits readable from 20 meters. Color phases shift from green to red as time runs out. Unmissable.",
   },
   {
-    icon: SlidersHorizontal,
-    title: "Total control",
-    body: "Presets from 1 minute to 3 hours. Custom durations. Add or subtract time mid-session. Start, pause, reset.",
+    icon: Smartphone,
+    title: "Control it from your phone",
+    body: "Scan a QR code and any phone, tablet or OBS dock becomes a remote. Start, pause, add or subtract time from anywhere in the room. Private link, local network only.",
   },
   {
     icon: Globe,

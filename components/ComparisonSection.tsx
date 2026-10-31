@@ -46,6 +46,7 @@ const cards: ComparisonCard[] = [
       { text: "Phase colors", status: "check" },
       { text: "Audio chime", status: "check" },
       { text: "QR code sharing", status: "check" },
+      { text: "Phone remote control", status: "check" },
       { text: "Free forever", status: "check" },
       { text: "No account needed", status: "check" },
     ],

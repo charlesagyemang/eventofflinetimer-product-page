@@ -23,7 +23,7 @@ A Next.js 15 marketing landing page for the **Offline Event Timer** — an Elect
 
 | Layer | Technology | Version |
 |-------|-----------|---------|
-| Framework | Next.js | 15 (App Router) |
+| Framework | Next.js | 16 (App Router) |
 | Styling | Tailwind CSS | 4 |
 | Animations | Framer Motion | latest |
 | Icons | Lucide React | latest |
@@ -75,7 +75,7 @@ Text muted:         rgba(226, 232, 240, 0.35)
 Glows are intentionally 40% less intense than the spec called for — more restrained and professional.
 
 ### GitHub URL Removed
-The repo is private, so `NEXT_PUBLIC_GITHUB_URL` is empty. The "View on GitHub" button in the hero and all GitHub links in the footer hide automatically when this var is empty.
+The repo is private, so all GitHub links (hero button, footer links) were deleted. Don't add them back while it stays private: the GitHub Release pages 404 for the public, even though the app's release notes link to them.
 
 ### Download Hosting — Cloudflare R2
 The spec assumed GitHub release URLs. Since the repo is private, downloads are hosted on **Cloudflare R2**.
@@ -121,9 +121,9 @@ npx wrangler r2 object put eventofflinetimer-releases/latest/"FILENAME" --file .
 npx wrangler r2 object put eventofflinetimer-releases/vX.Y.Z/"FILENAME" --file ./path/to/file --remote
 ```
 
-Then update `NEXT_PUBLIC_APP_VERSION` in `.env.local` and redeploy.
+Then update the four filenames and `appVersion` in `lib/downloads.ts` and redeploy. Spaces in filenames must be `%20` encoded.
 
-If filenames change between versions, also update the download URL env vars. Spaces in filenames must be `%20` encoded in the env vars.
+The app's release notes give the new links as `NEXT_PUBLIC_*` env values. This site doesn't read env vars anymore, so copy those URLs into `lib/downloads.ts` instead.
 
 ---
 
@@ -166,7 +166,7 @@ If filenames change between versions, also update the download URL env vars. Spa
 │       └── GlowOrb.tsx
 │
 ├── lib/
-│   ├── downloads.ts           # Typed download config from env vars
+│   ├── downloads.ts           # Hardcoded R2 download URLs + appVersion
 │   └── detectPlatform.ts     # Client-side OS detection
 │
 ├── public/
@@ -174,8 +174,6 @@ If filenames change between versions, also update the download URL env vars. Spa
 │   └── screenshots/           # 9 optimized .webp images
 │
 ├── current-builds/            # Local release binaries (gitignored)
-├── .env.local                 # Live download URLs (gitignored)
-├── .env.example               # Template with R2 URLs
 └── next.config.ts             # output: 'export', unoptimized images
 ```
 
@@ -226,24 +224,18 @@ This order is intentional. Don't rearrange.
 - Any device on same WiFi opens `http://[laptop-ip]:4000/display` and sees live countdown
 - Timer phases: >50% green, 25-50% amber, 10-25% orange, <10% red/pulse, 0:00 TIME'S UP
 - Optional online tunnel (localtunnel) for remote viewers
+- Projector Display (v1.2): one-click fullscreen timer on any connected monitor or projector
+- Remote Control (v1.3): phone, tablet, another computer or OBS browser dock controls the timer via QR code or private link. Local network only, off by default. v1.3 also fixed timer drift (a 1-hour timer ends on the second)
+- Current version: 1.3.0
 - Platforms: macOS (ARM + Intel), Windows, Linux
 - Price: Free, open source, no account required
 - **Core value prop: it works when the internet doesn't**
 
 ---
 
-## Environment Variables
+## Download Config
 
-```env
-NEXT_PUBLIC_DOWNLOAD_MAC_DMG=         # R2 URL to macOS ARM .dmg
-NEXT_PUBLIC_DOWNLOAD_MAC_INTEL_DMG=   # R2 URL to macOS Intel .dmg
-NEXT_PUBLIC_DOWNLOAD_WINDOWS_EXE=     # R2 URL to Windows .exe
-NEXT_PUBLIC_DOWNLOAD_LINUX_APPIMAGE=  # R2 URL to Linux .AppImage
-NEXT_PUBLIC_APP_VERSION=1.0.0
-NEXT_PUBLIC_GITHUB_URL=               # Empty = hide GitHub links
-```
-
-If any download URL is empty/missing, that platform's card hides automatically.
+No environment variables. The download URLs and version are hardcoded in `lib/downloads.ts`, built from `R2_BASE` (`.../latest`). If a platform's `url` is empty, its card hides automatically.
 
 ---
 
